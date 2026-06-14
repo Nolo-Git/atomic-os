@@ -17,7 +17,7 @@ modules:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
-  rpm-ostree:
+  - type: dnf
     repos:
       - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
       - https://1password.com
@@ -27,7 +27,8 @@ modules:
     install:
       - brave-browser
       - 1password
-      - 1password-cli
+
+  - type: optfix
 
 #    remove:
 #      packages:
