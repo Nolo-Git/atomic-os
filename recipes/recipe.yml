@@ -4,11 +4,9 @@
 name: atomic-os
 # description will be included in the image's metadata
 description: This is my personal OS image.
-
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/kinoite-main
 image-version: 44 # latest is also supported if you want new updates ASAP
-
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
@@ -16,10 +14,6 @@ modules:
     files:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
-  - type: rpmfusion
-    # Enables the Free and Nonfree repositories for your base image
-    free: true
-    nonfree: true
   - type: rpm-ostree
     repos:
       - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
@@ -37,10 +31,11 @@ modules:
       - gstreamer1-plugin-libav
       - ffmpeg
       - intel-media-driver
+      - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+      - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
     remove:
       - firefox
       - firefox-langpacks
-
   - type: dnf
     install:
       packages:
@@ -64,5 +59,4 @@ modules:
           - com.rustdesk.RustDesk
           - io.ente.auth
       - scope: user # Also add Flathub user repo, but no user packages
-
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
