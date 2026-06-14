@@ -20,17 +20,22 @@ modules:
   - type: rpm-ostree
     repos:
       - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-    install:
-      - brave-origin
-      - git
-    remove:
-      - firefox
-      - firefox-langpacks
+ #   install:
+ #     - brave-origin
+ #     - git
+ #   remove:
+ #     - firefox
+ #     - firefox-langpacks
   - type: dnf
     install:
       packages:
         - fastfetch
         - gparted
+        - brave-origin
+        - git
+    remove:
+      - firefox
+      - firefox-langpacks        
 
 #  - type: default-flatpaks
 #    configurations:
