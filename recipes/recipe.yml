@@ -50,7 +50,6 @@ modules:
   - type: bling
     install:
       - 1password
-      - 1passworo-cli
   - type: default-flatpaks
     configurations:
       - notify: true # Send notification after install/uninstall is finished (true/false)
