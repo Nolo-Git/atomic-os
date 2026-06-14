@@ -20,6 +20,8 @@ modules:
   - type: rpm-ostree
     repos:
       - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+      - https://rpmfusion.org(rpm -E %fedora).noarch.rpm
+      - https://rpmfusion.org(rpm -E %fedora).noarch.rpm
     install:
       - brave-origin
       - qemu-kvm
@@ -27,22 +29,16 @@ modules:
       - virt-install
       - virt-manager
       - vlc
-    remove:
-      - firefox
-      - firefox-langpacks
-  - type: dnf
-    repos:
-      rpmfusion:
-        - free
-    
-    # Add multimedia packages (GStreamer base/good/bad plugins and FFmpeg)
-    install:
       - gstreamer1-plugins-base
       - gstreamer1-plugins-good
       - gstreamer1-plugins-bad-free
       - gstreamer1-plugins-ugly
       - gstreamer1-plugin-libav
       - ffmpeg
+      - intel-media-driver
+    remove:
+      - firefox
+      - firefox-langpacks
   - type: dnf
     install:
       packages:
