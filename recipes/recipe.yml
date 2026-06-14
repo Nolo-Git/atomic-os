@@ -26,20 +26,13 @@ modules:
       - libvirt
       - virt-install
       - virt-manager
+      - vlc
     remove:
       - firefox
       - firefox-langpacks
   - type: bling
     rpmfusion: true
-    install:
-      - vlc
-      - gstreamer1-plugins-base
-      - gstreamer1-plugins-good
-      - gstreamer1-plugins-bad-free
-      - gstreamer1-plugins-ugly
-      - gstreamer1-plugin-libav
-      - ffmpeg
-      - intel-media-driver
+
   - type: dnf
     install:
       packages:
@@ -47,6 +40,13 @@ modules:
         - gparted
         - brave-origin
         - git
+        - gstreamer1-plugins-base
+        - gstreamer1-plugins-good
+        - gstreamer1-plugins-bad-free
+        - gstreamer1-plugins-ugly
+        - gstreamer1-plugin-libav
+        - ffmpeg
+        - intel-media-driver
   - type: bling
     install:
       - 1password
