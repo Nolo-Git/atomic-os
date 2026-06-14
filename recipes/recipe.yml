@@ -23,9 +23,9 @@ modules:
  #   install:
  #     - brave-origin
  #     - git
- #   remove:
- #     - firefox
- #     - firefox-langpacks
+    remove:
+      - firefox
+      - firefox-langpacks
   - type: dnf
     install:
       packages:
@@ -33,10 +33,6 @@ modules:
         - gparted
         - brave-origin
         - git
-    remove:
-      - firefox
-      - firefox-langpacks        
-
 #  - type: default-flatpaks
 #    configurations:
 #      - notify: true # Send notification after install/uninstall is finished (true/false)
