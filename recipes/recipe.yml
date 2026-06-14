@@ -20,8 +20,8 @@ modules:
   - type: rpm-ostree
     repos:
       - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-      - https://rpmfusion.org(rpm -E %fedora).noarch.rpm
-      - https://rpmfusion.org(rpm -E %fedora).noarch.rpm
+      - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+      - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
     install:
       - brave-origin
       - qemu-kvm
