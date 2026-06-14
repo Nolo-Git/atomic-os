@@ -17,16 +17,13 @@ modules:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
-  - type: dnf
-    repos:
-      files:
-        - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-      keys:
-        - https://brave.com
+  - type: files
+    files:
+      - brave-browser.repo # (We will create this file next)
+      
+  - type: rpm-ostree
     install:
-      packages:
-        - brave-origin
-#        - 1password
+      - brave-origin
 
 #    remove:
 #      packages:
