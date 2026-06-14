@@ -17,29 +17,24 @@ modules:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
-  - type: dnf
+  rpm-ostree:
     repos:
-      - https://downloads.1password.com/linux/rpm/stable/1password.repo
+      - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+      - https://1password.com
+    keys:
+      - https://brave.com
+      - https://1password.com
     install:
-      packages:
-        - 1password
-        - 1password-cli
+      - brave-browser
+      - 1password
+      - 1password-cli
 
-  - type: script
-    scripts:
-      # Add the official Brave Origin / Brave RPM repository
-      - commands:
-          - dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-  - type: rpm
-    rpm:
-      - brave-origin
-
-    remove:
-      packages:
-        # example: removing firefox (in favor of the flatpak)
-        # "firefox" is the main package, "firefox-langpacks" is a dependency
-        - firefox
-        - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+#    remove:
+#      packages:
+#        # example: removing firefox (in favor of the flatpak)
+#        # "firefox" is the main package, "firefox-langpacks" is a dependency
+#        - firefox
+#        - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
 
 #  - type: default-flatpaks
 #    configurations:
