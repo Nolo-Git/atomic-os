@@ -19,16 +19,14 @@ modules:
 
   - type: dnf
     repos:
-      - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-      - https://1password.com
-    keys:
-      - https://brave.com
-      - https://1password.com
+      files:
+        - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+      keys:
+        - https://brave.com
     install:
-      - brave-browser
-      - 1password
-
-  - type: optfix
+      packages:
+        - brave-origin
+#        - 1password
 
 #    remove:
 #      packages:
