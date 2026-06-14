@@ -16,7 +16,10 @@ modules:
     files:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
-
+  - type: rpmfusion
+    # Enables the Free and Nonfree repositories for your base image
+    free: true
+    nonfree: true
   - type: rpm-ostree
     repos:
       - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
@@ -27,11 +30,16 @@ modules:
       - virt-install
       - virt-manager
       - vlc
+      - gstreamer1-plugins-base
+      - gstreamer1-plugins-good
+      - gstreamer1-plugins-bad-free
+      - gstreamer1-plugins-ugly
+      - gstreamer1-plugin-libav
+      - ffmpeg
+      - intel-media-driver
     remove:
       - firefox
       - firefox-langpacks
-  - type: bling
-    rpmfusion: true
 
   - type: dnf
     install:
@@ -40,13 +48,6 @@ modules:
         - gparted
         - brave-origin
         - git
-        - gstreamer1-plugins-base
-        - gstreamer1-plugins-good
-        - gstreamer1-plugins-bad-free
-        - gstreamer1-plugins-ugly
-        - gstreamer1-plugin-libav
-        - ffmpeg
-        - intel-media-driver
   - type: bling
     install:
       - 1password
