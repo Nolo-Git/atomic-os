@@ -23,7 +23,7 @@ modules:
       - libvirt
       - virt-install
       - virt-manager
-#      - vlc
+      - vlc
 #      - gstreamer1-plugins-base
 #      - gstreamer1-plugins-good
 #      - gstreamer1-plugins-bad-free
@@ -40,9 +40,6 @@ modules:
       packages:
         - fastfetch
         - gparted
-        - brave-origin
-        - git
-        - intel-media-driver
   - type: bling
     install:
       - 1password
