@@ -30,16 +30,19 @@ modules:
     remove:
       - firefox
       - firefox-langpacks
-  - type: rpm-ostree
+  - type: dnf
+    # Enable RPM Fusion Free so we can pull the restricted/free codecs
     repos:
-      - https://rpmfusion.org
-      - https://rpmfusion.org
+      - "https://rpmfusion.org"
+    
+    # Add multimedia packages (GStreamer base/good/bad plugins and FFmpeg)
     install:
-      - ffmpeg
+      - gstreamer1-plugins-base
+      - gstreamer1-plugins-good
       - gstreamer1-plugins-bad-free
-      - gstreamer1-plugins-bad-freeworld
-      - gstreamer1-plugins-ugly-free
-      - gstreamer1-plugins-ugly-freeworld
+      - gstreamer1-plugins-ugly
+      - gstreamer1-plugin-libav
+      - ffmpeg
   - type: dnf
     install:
       packages:
