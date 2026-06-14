@@ -23,10 +23,15 @@ modules:
     install:
       - brave-origin
       - git
-      - fastfetch
     remove:
       - firefox
       - firefox-langpacks
+modules:
+  - type: dnf
+    install:
+      packages:
+        - fastfetch
+        - gparted
 
 #  - type: default-flatpaks
 #    configurations:
