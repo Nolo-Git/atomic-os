@@ -31,9 +31,9 @@ modules:
       - firefox
       - firefox-langpacks
   - type: dnf
-    # Enable RPM Fusion Free so we can pull the restricted/free codecs
     repos:
-      - "https://rpmfusion.org"
+      rpmfusion:
+        - free
     
     # Add multimedia packages (GStreamer base/good/bad plugins and FFmpeg)
     install:
