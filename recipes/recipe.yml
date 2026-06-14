@@ -30,10 +30,17 @@ modules:
     remove:
       - firefox
       - firefox-langpacks
-  - type: dnf
+  - type: rpm-ostree
     repos:
-      - rpmfusion-free
-      - rpmfusion-nonfree
+      - https://rpmfusion.org
+      - https://rpmfusion.org
+    install:
+      - ffmpeg
+      - gstreamer1-plugins-bad-free
+      - gstreamer1-plugins-bad-freeworld
+      - gstreamer1-plugins-ugly-free
+      - gstreamer1-plugins-ugly-freeworld
+  - type: dnf
     install:
       packages:
         - fastfetch
