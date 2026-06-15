@@ -23,16 +23,29 @@ modules:
 #      - libvirt
 #      - virt-install
 #      - virt-manager
-#      - vlc
+      - vlc
     remove:
       - firefox
       - firefox-langpacks
+#  - type: dnf
+#    repos:
+#      nonfree: rpmfusion
+#    install:
+#      packages:
+#        - ffmpeg
   - type: dnf
     repos:
       nonfree: rpmfusion
     install:
+      allow-erasing: true
       packages:
+        - rpmfusion-free-release
         - ffmpeg
+        - gstreamer1-plugins-ugly
+        - gstreamer-ffmpeg
+        - libavcodec-freeworld
+        - ffmpegthumbnailer
+        - intel-media-driver
   - type: dnf
     install:
       packages:
