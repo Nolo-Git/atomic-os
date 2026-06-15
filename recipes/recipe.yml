@@ -32,7 +32,7 @@ modules:
       nonfree: rpmfusion
     install:
       packages:
-        - akmod-intel-ipu6
+        - ffmpeg
   - type: dnf
     install:
       packages:
