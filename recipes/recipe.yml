@@ -28,6 +28,12 @@ modules:
       - firefox
       - firefox-langpacks
   - type: dnf
+    repos:
+      nonfree: rpmfusion
+    install:
+      packages:
+        - akmod-intel-ipu6
+  - type: dnf
     install:
       packages:
         - fastfetch
